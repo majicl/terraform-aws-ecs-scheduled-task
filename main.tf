@@ -149,6 +149,13 @@ resource "aws_ecs_task_definition" "default" {
 
   # A mapping of tags to assign to the resource.
   tags = merge({ "Name" = var.name }, var.tags)
+
+   volume {
+    name = var.volume.name
+    efs_volume_configuration {
+      file_system_id = var.volume.source_arn
+    }
+  }
 }
 
 # ECS Task Execution IAM Role

@@ -18,6 +18,11 @@ variable "subnets" {
   description = "The subnets associated with the task or service."
 }
 
+variable "volume" {
+  type        = map
+  description = "volume configs"
+}
+
 variable "container_definitions" {
   type        = string
   description = "A list of valid container definitions provided as a single valid JSON document."
